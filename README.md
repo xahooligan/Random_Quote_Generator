@@ -1,2 +1,2 @@
-# Random_Quote_Generator
+## [Random_Quote_Generator](https://xahooligan.github.io/Random_Quote_Generator/)
 A random quote generator for a freecodecamp assignment
