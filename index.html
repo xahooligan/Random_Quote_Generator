@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Random Quote Generator</title>
+    <script>
+      const QUOTELIST = [
+        {
+          quote:"Yo Mama", author:"Joebama"
+        },
+        {
+          quote:"Eat my Shorts", author:"Bart Simpson"
+        },
+        {
+          quote:"Why you little!", author:"Homer Simpson"
+        },
+        {
+          quote:"Cheeto", author:"The Goblin"
+        },
+        {
+          quote:"The mind needs books like a sword needs a whetstone", author:"The Imp"
+        },
+        {
+          quote:"COWABUNGA!", author:"Green People"
+        },
+        {
+          quote:"I like turtle", author:"Zombiekid"
+        },
+        {
+          quote:"With great power comes great responsibility", author:"Spidey's dead uncle"
+        },
+        {
+          quote:"Something something fish, give a day, teach a fish to man feed life", author:"Some guy who died"
+        }
+      ]
+      window.onload = start;
+      function start() {
+        newQuote();
+      }
+
+      function newQuote() {
+        let random = Math.floor(Math.random() * QUOTELIST.length);
+        let twitLink = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22";
+        //quote href
+        twitLink += QUOTELIST[random].quote.replace(/ /g, "%20");
+        //author href
+        twitLink += QUOTELIST[random].author.replace(/ /g, "%20");
+
+        document.getElementById("tweet-quote").href = twitLink;
+        document.getElementById("text").innerText = '"' + QUOTELIST[random].quote + '"';
+        document.getElementById("author").innerText = QUOTELIST[random].author;
+      }
+    </script>
+    <style>
+      * {
+        font-size: 1.4rem;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row py-4">
+        <div class="col-md-8 offset-md-2"
+          <wrapper id="quote-box">
+            <div class="card">
+              <div class="card-header text-center">
+                Quote of the day
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p id="text" class="text-center"></p>
+                  <footer id="author" class="blockquote-footer text-right"></footer>
+                </blockquote>
+              </div>
+            </div>
+            <button id="new-quote" class="btn btn-primary" onClick="newQuote();">Gimme a Quote ya WANKA</button>
+            <a id="tweet-quote" target="_blank" class="btn btn-info" href="">Tweet</a>
+          </wrapper>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  </body>
+</html>
